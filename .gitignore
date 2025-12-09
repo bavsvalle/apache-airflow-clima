@@ -1,0 +1,40 @@
+# --- AMBIENTE VIRTUAL ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- ARQUIVOS DO AIRFLOW ---
+airflow_home/
+logs/
+plugins/__pycache__/
+
+# Arquivos de senha/configuração gerados pelo standalone
+*.json.generated
+
+# --- PYTHON ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Cache do pip
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+
+# --- EDITOR / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- SISTEMA ---
+.DS_Store
+Thumbs.db
+
+# --- OUTPUTS E TEMPORÁRIOS ---
+*.log
+*.tmp
+*.bak
