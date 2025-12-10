@@ -2,12 +2,11 @@ import pandas as pd
 import requests
 from airflow import DAG
 from airflow.decorators import task
+from airflow.operators.python import get_current_context
 from datetime import datetime
 
 # URL de base para a API de livros
 base_url = "https://my.meteoblue.com/packages/basic-day?apikey=1iMwbQSygalO6K5N&lat=-23.0847&lon=-50.5223&asl=608&format=json"
-# Caminho para salvar o arquivo CSV
-output_path = "/home/barbara/projetos_linux/airflow_clima/clima.csv"
 
 # Definição do DAG
 with DAG(
@@ -49,9 +48,15 @@ with DAG(
     # Task 3: Salvar os dados processados em CSV no output_path
     @task
     def salvar_dados_csv(df_dict): # Recebe os dados processados da Task 2
+            context = get_current_context() # Obtém o contexto atual do Airflow - "puxa" as informações do DAG
+            data_interval_end = context['data_interval_end'] # Obtém o final do intervalo de dados
+            data_atual = data_interval_end.strftime("%Y%m%d") # Formata a data para o nome do arquivo
+
+            output_path = f"/home/barbara/projetos_linux/airflow_clima/clima_{data_atual}.csv" # Define o caminho do arquivo de saída
+
             df = pd.DataFrame(df_dict) # Converte o dicionário de volta para DataFrame
-            df.to_csv(output_path, index=False)
-            print(f"Dados salvos em {output_path}")
+            df.to_csv(output_path, index=False) # Salva o DataFrame em CSV sem o índice
+            print(f"Arquivo salvo em: {output_path}") # Confirmação de salvamento do arquivo
 
     # Definição da ordem de execução das tasks
     dados = coletar_dados_clima()
