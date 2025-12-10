@@ -1,3 +1,8 @@
+![Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=Apache%20Airflow&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![DAG](https://img.shields.io/badge/DAG-Pipeline-blue)
+
+
 ## 🌦️ Airflow Clima – Pipeline de Coleta de Dados Meteorológicos
 
 DAG do Apache Airflow para coletar dados da API Meteoblue, processá-los com Pandas e salvar arquivos CSV datados em execução automática semanal.
