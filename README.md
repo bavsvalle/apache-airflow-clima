@@ -3,7 +3,7 @@
 ![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
 ![DAG](https://img.shields.io/badge/DAG-Pipeline-blue)
 
-# 🌦️ Airflow Clima – Pipeline de Coleta de Dados Meteorológicos
+## 🌦️ Airflow Clima – Pipeline de Coleta de Dados Meteorológicos
 
 ## 🎯 Sobre o projeto
 
